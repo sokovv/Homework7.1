@@ -2,12 +2,26 @@ import Validator from '../Validator';
 
 const validat = new Validator()
 
-console.log(validat.validateUsername('Vale111111ra'))
 
 test('Validator false', () => {
     expect(validat.validateUsername('Vale11111ra')).toBeFalsy();
 });
+test('Validator false', () => {
+    expect(validat.validateUsername('-Valera')).toBeFalsy();
+});
+test('Validator false', () => {
+    expect(validat.validateUsername('Valera-')).toBeFalsy();
+});
+test('Validator false', () => {
+    expect(validat.validateUsername('_Valera')).toBeFalsy();
+});
 
 test('Validator true', () => {
+    expect(validat.validateUsername('Valera')).toBeTruthy();
+});
+test('Validator true', () => {
     expect(validat.validateUsername('Vale11ra')).toBeTruthy();
+});
+test('Validator true', () => {
+    expect(validat.validateUsername('valera')).toBeTruthy();
 });
